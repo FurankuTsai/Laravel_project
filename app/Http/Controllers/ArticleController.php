@@ -46,7 +46,7 @@ class ArticleController extends Controller
 
         $article = $this->articleService->updateById($articleId, $paramAry);
 
-        return response()->json($article);
+        return new JsonResponse(null);
     }
     
     public function getArticleList(GetArticleListRequest $request): ArticleListResource

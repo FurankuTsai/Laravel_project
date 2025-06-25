@@ -13,6 +13,8 @@ class ArticleResource extends JsonResource
             'title'      => $this->title,
             'content'    => $this->content,
             'image'      => $this->image ?? null
+            'created_at' => $article->created_at->format('Y-m-d H:i:s'),
+            'updated_at' => $article->updated_at->format('Y-m-d H:i:s')
         ];
     }
 }

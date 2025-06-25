@@ -47,10 +47,6 @@ class ArticleRepository
             $query->where('content', $filter['content']);
         }
 
-        if (isset($filter['group_by'])) {
-            $query->groupBy($filter['group_by']);
-        }
-
         $filter['sort']  = $filter['sort'] ?? 'DESC';
         $filter['limit'] = $filter['limit'] ?? self::DEFAULT_LIMIT;
 

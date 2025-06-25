@@ -20,7 +20,7 @@ class GetArticleListRequest extends FormRequest
             'title'        => 'nullable|string',
             'content'      => 'nullable|string',
             'limit'        => 'nullable|integer',
-            'current_page' => 'nullable|integer',
+            'page'         => 'nullable|integer',
             'sort'         => ['nullable', Rule::in('ASC', 'DESC')],
             'order_by'     => ['nullable', Rule::in(ArticleListOrderByEnum::getKeys())],
         ];
