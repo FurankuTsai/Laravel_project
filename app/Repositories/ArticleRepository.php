@@ -47,15 +47,13 @@ class ArticleRepository
             $query->where('content', $filter['content']);
         }
 
-        $filter['sort']  = $filter['sort'] ?? 'DESC';
-        $filter['limit'] = $filter['limit'] ?? self::DEFAULT_LIMIT;
-
         // 欄位排序
+        $limit   = $filter['limit'] ?? self::DEFAULT_LIMIT;
         $sort    = $filter['sort'] ?? 'DESC';
         $orderBy = $filter['order_by'] ?? ArticleListOrderByEnum::UPDATED_AT;
         $query->orderBy($orderBy, $sort);
 
-        $article = isset($filter['limit']) ? $query->paginate($filter['limit']) : $query->get();
+        $article = $query->paginate($limit);
 
         return $article;
     }
